@@ -180,7 +180,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 <body>
     <div class="login-container">
         <h2>Log In</h2>
-        <form id="login-form">
+        <form method="post" id="login-form">
             <div class="input-group">
                         <label for="em-auth">Email Address:</label>
                         <input type="email" id="em-auth" name="em-auth" value="<?= $email; ?>" required>
