@@ -128,7 +128,7 @@
                 <li><a href="Services.html">Services</a></li>
                 <li><a href="About Us.html">About Us</a></li>
                 <li><a href="Message.html">Message</a></li>
-                <li><button class="logout-button" onclick="logout()">Log Out</button></li>
+                <li><a href="./logout.php"><button class="logout-button" >Log Out</button></a></li>
             </ul>
         </nav>
     </header>
