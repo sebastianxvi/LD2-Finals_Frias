@@ -29,7 +29,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $statement->execute();
 
 
-        $statement->bind_result($id, $first_name, $last_name, $phone, $stored_password, $created_at);
+        $statement->bind_result($id, $first_name, $last_name, $stored_password, $created_at);
 
 
 
@@ -43,7 +43,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $_SESSION["first_name"] = $first_name;
                 $_SESSION["last_name"] = $last_name;
                 $_SESSION["email"] = $email;
-                $_SESSION["phone"] = $phone;
                 $_SESSION["created_at"] = $created_at;
                 
                 header("location: ./menu.php");
