@@ -197,11 +197,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             <p class="forgot-password">
                 <a href="#">Forgot Password?</a>
             </p>
-
+                     <a href="./menu.php">
                 <button type="submit">Log In</button>
-                        <a href="./menu.php">
+                     </a>
+                      <a href="./index.php">
             <button type="button" id="createAccountButton" class="create-account-button">Create New Account</button>
-                         <a href="./index.php">
+                      </a>
             <p id="error-message" class="error-message"></p>
         </form>
     </div>
