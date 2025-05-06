@@ -253,12 +253,11 @@ if($authenticated){
             <p class="forgot-password">
                 <a href="#">Forgot Password?</a>
             </p>
-            <a href="./login.php">
           <button type="submit" id="createAccountButton" class="create-account-button">Register</button>
-                    </a> 
-                     <a href="./login.php">
+                    
+            <a href="./login.php">
             <button type="button" id="createAccountButton" class="create-account-button">Login</button>
-                    </a> 
+            </a> 
             <p id="error-message" class="error-message"></p>
         </form>
     </div>
