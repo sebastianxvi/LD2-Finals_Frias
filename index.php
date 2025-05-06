@@ -79,7 +79,7 @@ IF($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         $statement = $dbConnection->prepare(
             "INSERT INTO users (first_name, last_name, email, password, created_at) ".
-            "VALUES (?,?,?,?,?,?,?)"
+            "VALUES (?,?,?,?,?)"
         );
 
     $statement->bind_param('sssssss', $first_name,$last_name,$email,$password,$created_at);
