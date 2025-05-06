@@ -1,10 +1,10 @@
 <?php
 function getDBConnection(){
-    $servername = "";
-    $username = "";
-    $password = "";
-    $database = "";
-    $port = 3306;
+    $servername = "switchyard.proxy.rlwy.net";
+    $username = "root";
+    $password = "TzYfrdBKhmUefTAVqmjeatqGWnNqGuwa";
+    $database = "railway";
+    $port = 17607;
 
 
 $connection = new mysqli($servername, $username, $password, $database);
