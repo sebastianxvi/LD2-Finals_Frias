@@ -78,7 +78,7 @@ IF($_SERVER['REQUEST_METHOD'] == 'POST'){
         $created_at = date('Y-m-d H:i:s');
 
         $statement = $dbConnection->prepare(
-            "INSERT INTO users (first_name, last_name, email, password, created_at) ".
+            "INSERT INTO users (first_name, last_name, email, password, createdAt) ".
             "VALUES (?,?,?,?,?)"
         );
 
