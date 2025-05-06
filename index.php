@@ -227,7 +227,7 @@ if($authenticated){
 <body>
     <div class="login-container">
         <h2>Log In</h2>
-        <form id="login-form">
+        <form method= "post" id="login-form">
             <div class="input-group">
                 <label for="fname">First Name</label>
                 <input type="text" id="fname" name="fname" value="<?= $first_name; ?>" required placeholder="Enter your First Name">
@@ -243,7 +243,7 @@ if($authenticated){
                 <button type="button" id="togglePassword" class="toggle-password">
                     <img id="eyeIcon" src="https://cdn-icons-png.flaticon.com/512/159/159604.png" alt="Show Password">
                 </button>
-                <label for="Cpass">Password</label>
+                <label for="Cpass">Confirm Password</label>
                 <input type="password" id="Cpass" name="Cpass" required placeholder="Enter your password">
                 <button type="button" id="togglePassword" class="toggle-password">
                     <img id="eyeIcon" src="https://cdn-icons-png.flaticon.com/512/159/159604.png" alt="Show Password">
