@@ -1,4 +1,64 @@
-<!DOCTYPE html>
+<?php
+
+session_start();
+
+if(isset($_SESSION["email"])){
+    header("location: ./menu.php");
+    exit;
+}
+
+
+$email = "";
+$error = "";
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $email = trim($_POST['em-auth']);
+    $password = trim($_POST['pass-auth']);
+
+    if(empty($email) || empty($password)){
+        $error = "Email and/or Password is required.";
+    } else{
+        include "tools/db.php";
+        $dbConnection = getDBConnection();
+     
+        $statement = $dbConnection->prepare(
+            "SELECT id, first_name, last_name, phone, password, created_at FROM users WHERE email = ?"
+        );
+
+        $statement->bind_param('s',$email);
+        $statement->execute();
+
+
+        $statement->bind_result($id, $first_name, $last_name, $phone, $stored_password, $created_at);
+
+
+
+
+        
+
+        if($statement->fetch()){
+
+            if(password_verify($password,$stored_password)){
+                $_SESSION["id"] = $id;
+                $_SESSION["first_name"] = $first_name;
+                $_SESSION["last_name"] = $last_name;
+                $_SESSION["email"] = $email;
+                $_SESSION["phone"] = $phone;
+                $_SESSION["created_at"] = $created_at;
+                
+                header("location: ./menu.php");
+                exit;
+            }
+        }
+
+        $statement->close();
+
+        $error = "Email or Password Invalid";
+    }
+}
+
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -122,13 +182,13 @@
         <h2>Log In</h2>
         <form id="login-form">
             <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required placeholder="Enter your username">
+                        <label for="em-auth">Email Address:</label>
+                        <input type="email" id="em-auth" name="em-auth" value="<?= $email; ?>" required>
             </div>
 
             <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required placeholder="Enter your password">
+                <label for="pass-auth">Password:</label>
+                <input type="password" id="pass-auth" name="pass-auth" required>
                 <button type="button" id="togglePassword" class="toggle-password">
                     <img id="eyeIcon" src="https://cdn-icons-png.flaticon.com/512/159/159604.png" alt="Show Password">
                 </button>
@@ -138,56 +198,12 @@
                 <a href="#">Forgot Password?</a>
             </p>
 
-            <button type="submit" id="loginButton" class="login-button">Log In</button>
+                <button type="submit">Log In</button>
+                        <a href="./menu.php">
             <button type="button" id="createAccountButton" class="create-account-button">Create New Account</button>
+                         <a href="./index.php">
             <p id="error-message" class="error-message"></p>
         </form>
     </div>
-
-    <script>
-        // Toggle password visibility
-        document.getElementById("togglePassword").addEventListener("click", function () {
-            const passwordInput = document.getElementById("password");
-            const eyeIcon = document.getElementById("eyeIcon");
-            
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-                eyeIcon.src = "https://cdn-icons-png.flaticon.com/512/3507/3507619.png"; 
-                eyeIcon.alt = "Hide Password";
-            } else {
-                passwordInput.type = "password";
-                eyeIcon.src = "https://cdn-icons-png.flaticon.com/512/159/159604.png"; 
-                eyeIcon.alt = "Show Password";
-            }
-        });
-
-        // Redirect to account creation page
-        document.getElementById("createAccountButton").addEventListener("click", function () {
-            window.location.assign("menu.html");  // Relative path for GitHub Pages
-        });
-
-        // Login form submission and validation
-        document.getElementById("login-form").addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-
-            const correctUsername = 'admin123';
-            const correctPassword = 'admin123';
-
-            const errorMessage = document.getElementById("error-message");
-
-            if (username === correctUsername && password === correctPassword) {
-                // Successful login, redirect to another page (e.g., dashboard or home)
-                errorMessage.style.display = 'none';
-                window.location.href = "menu.html";  // Relative path for GitHub Pages
-            } else {
-                // Incorrect credentials
-                errorMessage.style.display = 'block';
-                errorMessage.textContent = 'Incorrect username or password. Please try again.';
-            }
-        });
-    </script>
 </body>
 </html>
