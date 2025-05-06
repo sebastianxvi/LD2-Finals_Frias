@@ -256,7 +256,9 @@ if($authenticated){
             <a href="./login.php">
           <button type="submit" id="createAccountButton" class="create-account-button">Register</button>
                     </a> 
+                     <a href="./login.php">
             <button type="button" id="createAccountButton" class="create-account-button">Login</button>
+                    </a> 
             <p id="error-message" class="error-message"></p>
         </form>
     </div>
