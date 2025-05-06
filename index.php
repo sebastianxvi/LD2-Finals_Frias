@@ -82,7 +82,7 @@ IF($_SERVER['REQUEST_METHOD'] == 'POST'){
             "VALUES (?,?,?,?,?)"
         );
 
-    $statement->bind_param('sssssss', $first_name,$last_name,$email,$password,$created_at);
+    $statement->bind_param('sssss', $first_name,$last_name,$email,$password,$created_at);
 
     $statement->execute();
 
