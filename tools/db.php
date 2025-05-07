@@ -1,10 +1,10 @@
 <?php
 function getDBConnection(){
 
-$host = 'switchyard.proxy.rlwy.net';
-$port = 17607;
+$host = 'ballast.proxy.rlwy.net';
+$port = 38579;
 $user = 'root';
-$password = 'TzYfrdBKhmUefTAVqmjeatqGWnNqGuwa';
+$password = 'xWSBZBiCMFASyziCSVarZyeGAkAiiQpJ';
 $dbname = 'railway';
 
 // Create connection
