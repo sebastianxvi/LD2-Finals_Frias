@@ -22,14 +22,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $dbConnection = getDBConnection();
      
         $statement = $dbConnection->prepare(
-            "SELECT id, first_name, last_name, password, createdAt FROM users WHERE email = ?"
+            "SELECT id, username, password, createdAt FROM users WHERE email = ?"
         );
 
         $statement->bind_param('s',$email);
         $statement->execute();
 
 
-        $statement->bind_result($id, $first_name, $last_name, $stored_password, $createdAt);
+        $statement->bind_result($id, $username, $stored_password, $createdAt);
 
 
 
@@ -40,8 +40,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             if(password_verify($password,$stored_password)){
                 $_SESSION["id"] = $id;
-                $_SESSION["first_name"] = $first_name;
-                $_SESSION["last_name"] = $last_name;
+                $_SESSION["username"] = $username;
                 $_SESSION["email"] = $email;
                 $_SESSION["createdAt"] = $createdAt;
                 
