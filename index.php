@@ -129,7 +129,7 @@ if($authenticated){
 
         <center><button type="submit" id="btn">Register</button>
         </center>
-        <center><a href="login.php"><button type="button" id="btn">Register</button></a>
+        <center><a href="login.php"><button type="button" id="btn">Log In</button></a>
         </center>
       </form>
     </div>
