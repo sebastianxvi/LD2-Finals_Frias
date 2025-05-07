@@ -188,9 +188,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             <div class="input-group">
                 <label for="pass-auth">Password:</label>
                 <input type="password" id="pass-auth" name="pass-auth" required>
-                <button type="button" id="togglePassword" class="toggle-password">
-                    <img id="eyeIcon" src="https://cdn-icons-png.flaticon.com/512/159/159604.png" alt="Show Password">
-                </button>
             </div>
 
             <p class="forgot-password">
