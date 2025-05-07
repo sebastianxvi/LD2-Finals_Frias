@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+main {
+  min-height: 80vh;
+}
+
+.nav-bar {
+  padding: 2%;
+  background-color: rgb(77, 51, 21);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  border-radius: 20px;
+  border: transparent;
+  height: 30px;
+  width: 15vh;
+  background-color: rgb(44, 93, 199);
+  transition: 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background-color: rgb(33, 79, 177);
+}
+
+.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#webname {
+  text-transform: uppercase;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 3vh;
+}
+
+.footer {
+  background-color: rgb(77, 51, 21);
+  padding: 20px 0;
+  color: #fff;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo img {
+  max-width: 150px;
+}
+
+.contact-info {
+  text-align: center;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icon {
+  text-decoration: none;
+  color: #fff;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #d67b4d;
+  /* A warm color for hover effect */
+}
